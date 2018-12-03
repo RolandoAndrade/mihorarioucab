@@ -1,0 +1,78 @@
+{%load staticfiles%}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Horarios</title>
+	<link href="{% static 'img/icon.png' %}" rel="shortcut icon">
+	<link rel="stylesheet" href="{% static 'css/index.css' %}">
+	<link rel="stylesheet" href="{% static 'css/loading.css' %}">
+
+</head>
+<body>
+	<div class="loading" id="loading">
+		<div id="loading9">
+			<div class="shaft1"></div>
+			<div class="shaft2"></div>
+			<div class="shaft3"></div>
+			<div class="shaft4"></div>
+			<div class="shaft5"></div>
+			<div class="shaft6"></div>
+			<div class="shaft7"></div>
+			<div class="shaft8"></div>
+			<div class="shaft9"></div>
+			<div class="shaft10"></div>
+			<p class="loadingText">Descargando datos...</p>
+		</div>
+
+
+	</div>
+	<div id="hijo" class="hijo">
+		<table>
+			<tr>
+				<td>
+					<div class="canvas">
+						<canvas id="canvas" width="1200px" height="800px"></canvas>
+					</div>
+				</td>
+				<td>
+				<div class="nuevo">
+					<div class="selecciona">Datos de la materia a insertar:</div>
+					<label for="">Carrera:</label>
+					<select name="" id="career" class="combo" onchange="changeCareer()">
+					</select>
+					<label for="">Semestre:</label>
+					<select name="" id="semester" class="combo" onchange="fullSelectOfClasses()">
+						<option class="opcion" value="I" selected>I</option>
+						<option class="opcion" value="II">II</option>
+						<option class="opcion" value="III">III</option>
+						<option class="opcion" value="IV">IV</option>
+						<option class="opcion" value="V">V</option>
+						<option class="opcion" value="VI">VI</option>
+						<option class="opcion" value="VII">VII</option>
+						<option class="opcion" value="VIII">VIII</option>
+						<option class="opcion" value="IX">IX</option>
+						<option class="opcion" value="X">X</option>
+					</select>
+					<label for="">Materia:</label>
+					<select name="" id="materia" class="combo">
+
+					</select>
+					<input class="boton" type="button" onclick="putSubject()" value="Inscribir">
+				</div>
+			</td>
+			</tr>
+		</table>
+		
+	</div>
+
+</body>
+<script src="{% static  'js/jquery-3.3.1.min.js' %}" ></script>
+<script src="{% static  'js/constraits.js' %}"></script>
+<script src="{% static  'js/board.js' %}"></script>
+<script src="{% static  'js/cards.js' %}"></script>
+<script src="{% static  'js/main.js' %}"></script>
+<script src="{% static  'js/career_dao.js' %}"></script>
+<script src="{% static  'js/datos.js' %}"></script>
+
+</html>

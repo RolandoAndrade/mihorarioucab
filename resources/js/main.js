@@ -1,9 +1,12 @@
-
+var registrationNumber=0;
 function reset(subjects)
 {
-	var registrationNumber=cards.length;
+    if(cards.length==0)
+        registrationNumber=0;
 	cards.push(new Card(LEFT_WIDTH*(registrationNumber+1),HEIGHT-FOOTER_HEIGHT,FOOTER_HEIGHT,FOOTER_HEIGHT,colores[registrationNumber],subjects,registrationNumber));
+	registrationNumber++;
 }
+
 
 var board=new Board();
 

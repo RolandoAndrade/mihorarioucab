@@ -160,20 +160,23 @@ function wrapText(text, x, y, maxWidth, lineHeight)
 	ctx.fillText(line, x, y);
 }
 
-$(document).ready(function(){
-var width = document.getElementById('hijo').offsetWidth;
-            var height = document.getElementById('hijo').offsetHeight;
-            var windowWidth = $(document).outerWidth();
-            var windowHeight = $(document).outerHeight();
-            r = 1;
-            r = Math.min(windowWidth / width, windowHeight / height)
-            //console.log(r);
-            $('#hijo').css({
-                '-webkit-transform': 'scale(' + r + ')',
-                '-moz-transform': 'scale(' + r + ')',
-                '-ms-transform': 'scale(' + r + ')',
-                '-o-transform': 'scale(' + r + ')',
-                'transform': 'scale(' + r + ')'
-            });
+$(document).ready(function()
+{
+	/*
+	var width = document.getElementById('canvas').offsetWidth;
+	var height = document.getElementById('canvas').offsetHeight;
+	var windowWidth = $(document).outerWidth();
+	var windowHeight = $(document).outerHeight();
+	r = 1;
+	r = Math.min(height / windowHeight, windowHeight / height);
+	console.log(r);
+	$('#canvas').css({
+		'-webkit-transform': 'scale(' + r + ')',
+		'-moz-transform': 'scale(' + r + ')',
+		'-ms-transform': 'scale(' + r + ')',
+		'-o-transform': 'scale(' + r + ')',
+		'transform': 'scale(' + r + ')'
+	});*/
+
 
 });

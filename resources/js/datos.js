@@ -22,16 +22,16 @@ function successFunction(data) {
 window.onload = function () 
 { 
   retrieveInformation();
-}
-
+};
+let a;
 async function retrieveInformation()
 {
   var dao=new CareerDao();
   var loading=new Loading();
   loading.show();
-  fullSelectOfCareers(await dao.getAll());
-  await retrieveInformationOf(1);
-  fullSelectOfClasses();
+  //fullSelectOfCareers(await dao.getAll());
+  //await retrieveInformationOf(1);
+  //fullSelectOfClasses();
   loading.hide();
 }
 

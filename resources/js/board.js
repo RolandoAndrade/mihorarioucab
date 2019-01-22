@@ -1,10 +1,4 @@
-var canvas=document.getElementById('canvas');
-var ctx=canvas.getContext('2d');
-var ClientRect = canvas.getBoundingClientRect();
-var dias=["Lunes","Martes","Miércoles","Jueves","Viernes","Sábado","Domingo"];
-var colores=["rgba(203,67,53,0.9)","rgba(155,89,182,0.9)","rgba(41,128,185,0.9)",
-"rgba(26,188,156,0.9)","rgba(241,196,15,0.9)","rgba(211,84,0,0.9)",
-"rgba(149,165,166,0.9)","rgba(52,73,94,0.9)","rgba(74, 35, 90,0.9)","rgba(128,0,0,0.9)"];
+
 var materias=new Array();
 var r=1;
 
@@ -100,7 +94,7 @@ class Footer
 	draw()
 	{
 		ctx.fillStyle="#2B4749";
-		ctx.fillRect(0,700,1200,100);
+		ctx.fillRect(0,700,WIDTH,100);
 		ctx.fillStyle="#193234";
 		ctx.fillRect(0,700,100,100);
 		ctx.fillStyle="#fff";
@@ -142,7 +136,7 @@ class Board
 	draw()
 	{
 		ctx.fillStyle="#81E3DD";
-		ctx.fillRect(0,0,1200,1000);
+		ctx.fillRect(0,0,WIDTH,BOARD_HEIGHT);
 		this.changeRows();
 		this.fadeColumns();
 		this.header.draw();

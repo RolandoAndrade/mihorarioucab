@@ -4,47 +4,37 @@
 	-webkit-box-sizing: border-box;
   	-moz-box-sizing: border-box;
   	box-sizing: border-box;
-  	 font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
 }
 body
 {
-	background: #4D6773;
-    overflow-x: visible;
-    white-space: nowrap;
+    position: relative;
     width: 100%;
-      
+    height: 100%;
+	background: #4D6773;
+	overflow-x: hidden;
 }
 #hijo
 {
-  	left: 0;
+    top: 0;
+    left: 0;
     position: fixed;
     overflow: visible;
     display: inline;
     width: 100%;
-    -moz-transform-origin: top left;
-    -ms-transform-origin: top left;
-    -o-transform-origin: top left;
-    -webkit-transform-origin: top left;
-     transform-origin: top left;
-    -moz-transition: all .2s ease-in-out;
-    -o-transition: all .2s ease-in-out;
-    -webkit-transition: all .2s ease-in-out;
-     transition: all .2s ease-in-out;
+    text-align: center;
+    transition: all .2s ease-in-out;
 }
 table
 {
 	border-collapse: collapse;
+    margin: 0 auto;
 }
 label{
 	color: #79A2B5;
 	font-size: 15px;
 	font-style: bold;
 	margin: 15px;
-}
-#canvas{
--webkit-box-shadow: 5px 5px 70px -9px rgba(0,0,0,0.75);
--moz-box-shadow: 5px 5px 70px -9px rgba(0,0,0,0.75);
-box-shadow: 5px 5px 70px -9px rgba(0,0,0,0.75);
 }
 .selecciona{
 	color:#fff;
@@ -81,57 +71,38 @@ box-shadow: 5px 5px 70px -9px rgba(0,0,0,0.75);
 	margin-top: 25px;
 }
 
-.modal{
-   background-color: rgba(0,0,0, .8);
-   width:100%;
-   height: 100vh;
-   position: absolute;
-   top: 0;
-   left: 0;
-   z-index: 10;
-   opacity: 0;
-   visibility: hidden;
-   transition: all .5s;
-  }
-  .modal__content{
-   width: 75%;
-   height: 65%;
-   background-color: #fff;
-   position: absolute;
-   top: 50%;
-   left: 50%;
-   transform: translate(-50%, -50%);
-   padding: 2em;
-   border-radius: 1em;
-   opacity: 0;
-   visibility: hidden;
-   transition: all .5s;
-  }
-  #modal:target{
-   opacity: 1;
-   visibility: visible;
-  }
-  #modal:target .modal__content{
-   opacity: 1;
-   visibility: visible;
-  }
-  .modal__close{
-   color: #363636;
-   font-size: 2em;
-   position: absolute;
-   top: .5em;
-   right: 1em;
-  }
-  .modal__heading{
-   color: dodgerblue;
-   margin-bottom: 1em;
-  }
-  .modal__paragraph{
-   line-height: 1.5em;
-  }
-.modal-open{
- display: inline-block;
- color: dodgerblue;
- margin: 2em;
+.button
+{
+	width: 75px;
+	height: 75px;
+	position: fixed;
+	line-height: 75px;
+	text-align: center;
+	font-size: 50px;
+	border-radius: 50%;
+	color: white;
+	transition: 0.5s all;
+	opacity: 0.3;
+	cursor: pointer;
 }
+.button:hover
+{
+	opacity: 1;
+}
+.button.random
+{
+	background: cyan;
+	right: 0;
+	top:50%;
+	transform: translate(0,-60%);
+}
+.button.add
+{
+	background: orange;
+	right: 0;
+	top:50%;
+	transform: translate(0,60%);
+}
+
+
 

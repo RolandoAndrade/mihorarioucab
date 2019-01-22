@@ -7,7 +7,8 @@
 	<link href="{% static 'img/icon.png' %}" rel="shortcut icon">
 	<link rel="stylesheet" href="{% static 'css/index.css' %}">
 	<link rel="stylesheet" href="{% static 'css/loading.css' %}">
-
+	<link rel="stylesheet" href="{% static 'css/css/material-design-iconic-font.css' %}">
+	<link rel="stylesheet" href="{% static 'css/sweetalert2.css' %}">
 </head>
 <body>
 	<div class="loading" id="loading">
@@ -27,49 +28,19 @@
 
 
 	</div>
-	<div id="hijo" class="hijo">
-		<table>
-			<tr>
-				<td>
-					<div class="canvas">
-						<canvas id="canvas" width="1200px" height="800px"></canvas>
-					</div>
-				</td>
-				<td>
-				<div class="nuevo">
-					<div class="selecciona">Datos de la materia a insertar:</div>
-					<label for="">Carrera:</label>
-					<select name="" id="career" class="combo" onchange="changeCareer()">
-					</select>
-					<label for="">Semestre:</label>
-					<select name="" id="semester" class="combo" onchange="fullSelectOfClasses()">
-						<option class="opcion" value="I" selected>I</option>
-						<option class="opcion" value="II">II</option>
-						<option class="opcion" value="III">III</option>
-						<option class="opcion" value="IV">IV</option>
-						<option class="opcion" value="V">V</option>
-						<option class="opcion" value="VI">VI</option>
-						<option class="opcion" value="VII">VII</option>
-						<option class="opcion" value="VIII">VIII</option>
-						<option class="opcion" value="IX">IX</option>
-						<option class="opcion" value="X">X</option>
-					</select>
-					<label for="">Materia:</label>
-					<select name="" id="materia" class="combo">
 
-					</select>
-					<input class="boton" type="button" onclick="putSubject()" value="Inscribir">
-				</div>
-			</td>
-			</tr>
-		</table>
-		
+	<div class="canvas">
+		<canvas id="canvas" height="800px"></canvas>
 	</div>
+	<div class="button add" title="Añadir materia al tablero"><i class="zmdi zmdi-plus"></i></div>
+	<div class="button random" title="Generar horario aleatorio"><i class="zmdi zmdi-refresh"></i></div>
 
 </body>
 <script src="{% static  'js/jquery-3.3.1.min.js' %}" ></script>
+<script src="{% static 'js/sweetalert2.min.js'%}"></script>
 <script src="{% static  'js/constraits.js' %}"></script>
 <script src="{% static  'js/board.js' %}"></script>
+<script src="{% static  'js/combobox.js' %}"></script>
 <script src="{% static  'js/cards.js' %}"></script>
 <script src="{% static  'js/main.js' %}"></script>
 <script src="{% static  'js/career_dao.js' %}"></script>

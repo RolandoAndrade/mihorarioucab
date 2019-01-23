@@ -29,14 +29,18 @@ async function retrieveInformation()
   var dao=new CareerDao();
   var loading=new Loading();
   loading.show();
-  //fullSelectOfCareers(await dao.getAll());
-  //await retrieveInformationOf(1);
-  //fullSelectOfClasses();
+  fillCareers(await dao.getAll());
+  await retrieveInformationOf(1);
   loading.hide();
 }
 
 var classesAtCareer=[];
-
+var careers=[];
+function fillCareers(json)
+{
+    for(var i=0;i<json.length;i++)
+       careers.push(json[i]);
+}
 async function retrieveInformationOf(id)
 {
   var dao = new CareerDao();
@@ -78,14 +82,14 @@ function fullSelectOfClasses()
 }
 
 
-function fullSelectOfCareers(careers)
+function fullSelectOfCareers()
 {
     var select=document.getElementById('career');
     for(var i=0;i<careers.length;i++)
     {
+
         var option=document.createElement('option');
         option.setAttribute("value",careers[i].career_id);
-        option.setAttribute("style","background:#88C0DB");
         option.append(careers[i].name);
         select.appendChild(option);
     }

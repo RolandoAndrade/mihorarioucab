@@ -47,17 +47,17 @@ label{
 	height: 800px;
 }
 .combo{
-	background: #54707D;
+	background: #fff;
+    border: solid #54707D;
+    color: #54707D;
 	padding: 10px;
 	font-size: 12px;
-	color: #fff;
-	border: none;
 	display: block;
-	margin:15px;
+	margin: 15px auto;
+	width: 50%;
 }
 .opcion{
-	background: #88C0DB;
-	color:#fff;
+	background: #fff;
 	padding: 5px;
 }
 .boton

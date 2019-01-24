@@ -34,6 +34,32 @@
 	</div>
 	<div class="button add" title="Añadir materia al tablero"><i class="zmdi zmdi-plus"></i></div>
 	<div class="button random" title="Generar horario aleatorio"><i class="zmdi zmdi-refresh"></i></div>
+	<div class="dialog-background">
+		<div class="dialog-card">
+			<div class="dialog-title"><b>Añadir materia</b></div>
+			<label for="">Carrera:</label>
+			<select name="" id="career" class="combo" onchange="changeCareer()"></select>
+			<label for="">Semestre:</label>
+			<select name="" id="semester" class="combo" onchange="fullSelectOfClasses()">
+				<option class="opcion" value="I" selected>I</option>
+				<option class="opcion" value="II">II</option>
+				<option class="opcion" value="III">III</option>
+				<option class="opcion" value="IV">IV</option>
+				<option class="opcion" value="V">V</option>
+				<option class="opcion" value="VI">VI</option>
+				<option class="opcion" value="VII">VII</option>
+				<option class="opcion" value="VIII">VIII</option>
+				<option class="opcion" value="IX">IX</option>
+				<option class="opcion" value="X">X</option>
+			</select>
+			<label for="">Materia:</label>
+			<select name="" id="materia" class="combo"></select>
+			<div class="buttons-container">
+				<div class="mybuttons add-subject">Añadir <i class="zmdi zmdi-plus"></i></div>
+				<div class="mybuttons close-card">Cerrar <i class="zmdi zmdi-close"></i></div>
+			</div>
+		</div>
+	</div>
 
 </body>
 <script src="{% static  'js/jquery-3.3.1.min.js' %}" ></script>

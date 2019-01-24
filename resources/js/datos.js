@@ -31,6 +31,8 @@ async function retrieveInformation()
   loading.show();
   fillCareers(await dao.getAll());
   await retrieveInformationOf(1);
+  fullSelectOfCareers();
+  fullSelectOfClasses();
   loading.hide();
 }
 
@@ -140,10 +142,14 @@ function putSubject()
     {
       registered.push(classesAtCareer[subject][0]);
       reset(classesAtCareer[subject]);
+      swal({title: '¡Perfecto!', text: '¡Una materia fue añadida!',
+        type: 'success', confirmButtonText: 'Chévere', confirmButtonColor: "#1aceff"}).catch(swal.noop);
     }
     else
     {
-      alert("Parece que te gusta mucho la materia pero no puedes verla dos veces en el mismo semestre :(")
+      swal("Error",
+          "Parece que te gusta mucho la materia, pero no puedes verla dos veces en el mismo semestre",
+          "error").catch(swal.noop);;
     }
       
   }

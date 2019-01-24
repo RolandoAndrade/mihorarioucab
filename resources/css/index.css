@@ -33,7 +33,6 @@ table
 label{
 	color: #79A2B5;
 	font-size: 15px;
-	font-style: bold;
 	margin: 15px;
 }
 .selecciona{
@@ -103,6 +102,64 @@ label{
 	top:50%;
 	transform: translate(0,60%);
 }
+.dialog-background
+{
+	background-color: rgba(0, 0, 0, 0.4);
+	position: fixed;
+	overflow-y: auto;
+	align-items: center;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    padding: 10px;
+	text-align: center;
+}
+.dialog-card
+{
+	position: relative;
+	margin: 0 auto;
+	text-align: center;
+	width: 500px;
+	background: #fff;
+	border-radius: 5px;
+	top: 50%;
+	transform: translate(0,-50%);
+}
+.dialog-title
+{
+	font-size: 1.5em;
+	color: #424242;
+	padding: 30px;
+}
 
-
-
+.buttons-container
+{
+	padding: 30px;
+}
+.mybuttons
+{
+	padding: 20px;
+	font-size: 20px;
+	color: #fff;
+	display: inline-block;
+	border-radius: 5px;
+	cursor: pointer;
+    transition: 0.5s all;
+}
+.add-subject
+{
+	background: #77fff7;
+}
+.add-subject:hover
+{
+    background: #1aceff;
+}
+.close-card
+{
+	background: #cd565c;
+}
+.close-card:hover
+{
+	background: #cd3338;
+}

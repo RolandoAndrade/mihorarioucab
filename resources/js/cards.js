@@ -1,38 +1,5 @@
 var cards=new Array();
 
-class Day
-{
-	constructor(hour)
-	{
-		try
-		{
-			this.startHour=parseInt(hour.substr(0,2));
-			this.endHour=parseInt(hour.substr(2,4));
-		}
-		catch(e)
-		{
-			this.startHour=NaN;
-			this.endHour=NaN;
-		}
-		
-	}
-
-	isAtMyStartHour(hour)
-	{
-		return hour==this.startHour;
-	}
-
-	hasAClass()
-	{
-		return !isNaN(this.startHour);
-	}
-
-	getDiference()
-	{
-		return this.endHour-this.startHour;
-	}
-}
-
 class Subject
 {
 	constructor(info)
@@ -43,43 +10,6 @@ class Subject
 		this.name=info.name;
 		this.days=[new Day(info.monday),new Day(info.tuesday),new Day(info.wednesday),new Day(info.thursday),new Day(info.friday),
 		new Day(info.saturday),new Day(info.sunday)];
-	}
-
-	getClassAt(day, hour)
-	{
-		try
-		{
-			
-			if(this.days[day].isAtMyStartHour(hour))
-			{
-				return this.days[day].getDiference();
-			}
-			return 0;
-		}
-		catch(e)
-		{
-			return 0;
-		}
-		
-	}
-
-	createCard(color, number, others,day)
-	{
-		for (var i = 0; i < this.days.length; i++) 
-		{
-			if(day!=i)
-			{
-				if(this.days[i].hasAClass())
-				{
-					var x=LEFT_WIDTH+i*FIELD_WIDTH;
-					var y=(this.days[i].startHour-START_HOUR+1)*ROW_HEIGHT;
-					var w=FIELD_WIDTH;
-					var h=this.days[i].getDiference()*ROW_HEIGHT;
-					cards.push(new Card(x,y,w,h,color,others,number));
-				}
-			}
-			
-		}
 	}
 }
 

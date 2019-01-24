@@ -23,92 +23,53 @@ window.onload = function ()
 { 
   retrieveInformation();
 };
-let a;
+
+
+let careers=[];
+let classesAtCareer=[];
+let registered=[];
+let career;
+
 async function retrieveInformation()
 {
-  var dao=new CareerDao();
-  var loading=new Loading();
+  let loading=new Loading();
+  let manager=new Manager();
   loading.show();
-  fillCareers(await dao.getAll());
-  await retrieveInformationOf(1);
+  careers = await manager.getAll();
+  career = await manager.getById(1);
   fullSelectOfCareers();
   fullSelectOfClasses();
   loading.hide();
 }
 
-var classesAtCareer=[];
-var careers=[];
-function fillCareers(json)
-{
-    for(var i=0;i<json.length;i++)
-       careers.push(json[i]);
-}
-async function retrieveInformationOf(id)
-{
-  var dao = new CareerDao();
-  var career = await dao.getById(id);
-  for(var i=0;i<career.subjects.length;i++)
-  {
-      var s=new Subject(career.subjects[i]);
-      var index = indexOfClass(s);
-      if(index!=-1)
-      {
-        classesAtCareer[index].push(s);
-      }
-      else
-      {
-        classesAtCareer.push([s]);
-      }
-      
-  }
-}
-
 function fullSelectOfClasses()
 {
-  var subjects=document.getElementById('materia');
-  var semester=document.getElementById('semester').value;
-  deleteOptions(subjects);
-  for(var i=0;i<classesAtCareer.length;i++)
-  {
-    subject=classesAtCareer[i][0];
-    if(subject.semester==semester)
+    let subjects=document.getElementById('materia');
+    let semester=document.getElementById('semester').value;
+    deleteOptions(subjects);
+    for(let i=0;i<career.subjects.length;i++)
     {
-      var option=document.createElement('option');
-      option.setAttribute("value",i);
-      option.setAttribute("style","background:#88C0DB");
-      option.append(subject.name);
-      subjects.appendChild(option);
+        if(career.semesterOfSubject(i)===semester)
+        {
+            let option=document.createElement('option');
+            option.setAttribute("value",i);
+            option.append(career.nameOfSubject(i));
+            subjects.appendChild(option);
+        }
     }
-    
-  }
 }
-
 
 function fullSelectOfCareers()
 {
     var select=document.getElementById('career');
     for(var i=0;i<careers.length;i++)
     {
-
         var option=document.createElement('option');
-        option.setAttribute("value",careers[i].career_id);
+        option.setAttribute("value",careers[i].id);
         option.append(careers[i].name);
         select.appendChild(option);
     }
 }
-
-function indexOfClass(subject)
-{
-  for(var i=0;i< classesAtCareer.length;i++)
-  {
-    if(classesAtCareer[i][0].name==subject.name)
-    {
-      return i;
-    }
-  }
-  return -1;
-}
-
 
 function deleteOptions(select)
 {
@@ -117,44 +78,39 @@ function deleteOptions(select)
       select.removeChild(select.lastChild);
 }
 
-var registered=[];
-
 function isAlreadyRegistered(comp)
 {
-  console.log(registered, comp)
-  for(var i=0;i<registered.length;i++)
-  {
-    if(registered[i].name==comp[0].name)
+    for(let i=0;i<registered.length;i++)
     {
-      return true;
+        if(registered[i].name===comp)
+        {
+            return true;
+        }
     }
-      
-  }
-  return false;
+    return false;
 }
 
 function putSubject()
 {
-  var subject = document.getElementById('materia').value;
-  if(subject!="")
-  {
-    if(!isAlreadyRegistered(classesAtCareer[subject]))
+    let index = document.getElementById('materia').value;
+    if(index!=="")
     {
-      registered.push(classesAtCareer[subject][0]);
-      reset(classesAtCareer[subject]);
-      swal({title: '¡Perfecto!', text: '¡Una materia fue añadida!',
-        type: 'success', confirmButtonText: 'Chévere', confirmButtonColor: "#1aceff"}).catch(swal.noop);
-    }
-    else
-    {
-      swal("Error",
-          "Parece que te gusta mucho la materia, pero no puedes verla dos veces en el mismo semestre",
-          "error").catch(swal.noop);;
-    }
+        if(!isAlreadyRegistered(career.nameOfSubject(index)))
+        {
+            registered.push(career.subjects[index][0]);
+            reset(career.subjects[index]);
+            swal({title: '¡Perfecto!', text: '¡Una materia fue añadida!',
+            type: 'success', confirmButtonText: 'Chévere', confirmButtonColor: "#1aceff"}).catch(swal.noop);
+        }
+        else
+        {
+            swal("Error",
+            "Parece que te gusta mucho la materia, pero no puedes verla dos veces en el mismo semestre",
+            "error").catch(swal.noop);
+        }
       
-  }
-  
-  background();
+    }
+    background();
 }
 
 async function changeCareer()
@@ -163,10 +119,12 @@ async function changeCareer()
   cards=[];
   registered=[];
   var select=document.getElementById('career').value;
+  let manager = new Manager();
+
   var loading=new Loading();
   loading.show();
+  career = await manager.getById(select);
   background();
-  await retrieveInformationOf(select);
   loading.hide();
   fullSelectOfClasses();
 }

@@ -36,7 +36,7 @@ canvas.onmousedown=function(event)
 			break;
 		}
 	}
-}
+};
 
 
 function isACorrectClass(classTime)

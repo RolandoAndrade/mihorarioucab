@@ -69,20 +69,28 @@ label{
 	margin: 15px;
 	margin-top: 25px;
 }
+.float-buttons
+{
+    bottom: 0;
+    right: 0;
+    position: fixed;
+}
+
 
 .button
 {
 	width: 75px;
 	height: 75px;
-	position: fixed;
 	line-height: 75px;
 	text-align: center;
 	font-size: 50px;
 	border-radius: 50%;
 	color: white;
 	transition: 0.5s all;
+    display: block;
 	opacity: 0.3;
 	cursor: pointer;
+    margin: 10px;
 }
 .button:hover
 {
@@ -91,16 +99,14 @@ label{
 .button.random
 {
 	background: cyan;
-	right: 0;
-	top:50%;
-	transform: translate(0,-60%);
 }
 .button.add
 {
 	background: orange;
-	right: 0;
-	top:50%;
-	transform: translate(0,60%);
+}
+.button.download
+{
+	background: firebrick;
 }
 .dialog-background
 {

@@ -57,6 +57,13 @@ class Day
 	{
 		return this.endHour-this.startHour;
 	}
+
+	equals(day)
+    {
+        return this.startHour===day.startHour||
+            (this.startHour+this.getDiference()>day.startHour&&this.startHour<day.startHour)||
+            (day.startHour+day.getDiference()>this.startHour&&this.startHour>day.startHour);
+    }
 }
 
 class Career
@@ -119,22 +126,33 @@ class CareerSubject
 
 	createCard(color, number, others,day)
 	{
-		for (var i = 0; i < this.days.length; i++)
+		for (let i = 0; i < this.days.length; i++)
 		{
 			if(day!=i)
 			{
 				if(this.days[i].hasAClass())
 				{
-					var x=LEFT_WIDTH+i*FIELD_WIDTH;
-					var y=(this.days[i].startHour-START_HOUR+1)*ROW_HEIGHT;
-					var w=FIELD_WIDTH;
-					var h=this.days[i].getDiference()*ROW_HEIGHT;
+					let x=LEFT_WIDTH+i*FIELD_WIDTH;
+					let y=(this.days[i].startHour-START_HOUR+1)*ROW_HEIGHT;
+					let w=FIELD_WIDTH;
+					let h=this.days[i].getDiference()*ROW_HEIGHT;
 					cards.push(new Card(x,y,w,h,color,others,number));
 				}
 			}
 
 		}
 	}
+	shareCommonHours(subject)
+    {
+        for(let i=0;i<this.days.length;i++)
+        {
+            if(this.days[i].equals(subject.days[i]))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 }
 
 class JSONParser

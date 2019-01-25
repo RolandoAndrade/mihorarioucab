@@ -92,8 +92,7 @@ function completeSection(day)
 
 function deleteSection()
 {
-	var i=0;
-	console.log(cards);
+	let i=0;
 	while(i<cards.length)
 	{
 		if(cards[i]!=selection&&selection.id==cards[i].id)
@@ -101,7 +100,6 @@ function deleteSection()
 		else
 			i++;
 	}
-	console.log(cards);
 }
 
 canvas.onmouseup=function(event)

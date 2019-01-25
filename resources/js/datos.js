@@ -115,18 +115,17 @@ function putSubject()
 
 async function changeCareer()
 {
-  classesAtCareer=[];
-  cards=[];
-  registered=[];
-  var select=document.getElementById('career').value;
-  let manager = new Manager();
-
-  var loading=new Loading();
-  loading.show();
-  career = await manager.getById(select);
-  background();
-  loading.hide();
-  fullSelectOfClasses();
+    classesAtCareer=[];
+    cards=[];
+    registered=[];
+    var select=document.getElementById('career').value;
+    let manager = new Manager();
+    var loading=new Loading();
+    loading.show();
+    career = await manager.getById(select);
+    background();
+    loading.hide();
+    fullSelectOfClasses();
 }
 
 

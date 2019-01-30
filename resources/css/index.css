@@ -6,24 +6,24 @@
   	box-sizing: border-box;
     font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
 }
+html
+{
+	position: relative;
+}
 body
 {
-    position: relative;
     width: 100%;
     height: 100%;
 	background: #4D6773;
-	overflow-x: hidden;
+	position: fixed;
 }
-#hijo
+.canvas-container{
+	position: absolute;
+	top: 0;
+}
+.canvas
 {
-    top: 0;
-    left: 0;
-    position: fixed;
-    overflow: visible;
-    display: inline;
-    width: 100%;
-    text-align: center;
-    transition: all .2s ease-in-out;
+	margin: 0 auto;
 }
 table
 {

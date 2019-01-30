@@ -25,7 +25,7 @@ function background()
 var selection=null;
 canvas.onmousedown=function(event)
 {
-	var px=(event.clientX -ClientRect.left)/r;
+	var px=(event.clientX-ClientRect.left)/r;
 	var py=(event.clientY- ClientRect.top)/r;
 	for(var i=0; i<cards.length;i++)
 	{
@@ -160,21 +160,17 @@ function wrapText(text, x, y, maxWidth, lineHeight)
 
 $(document).ready(function()
 {
-	/*
-	var width = document.getElementById('canvas').offsetWidth;
-	var height = document.getElementById('canvas').offsetHeight;
-	var windowWidth = $(document).outerWidth();
-	var windowHeight = $(document).outerHeight();
-	r = 1;
-	r = Math.min(height / windowHeight, windowHeight / height);
-	console.log(r);
-	$('#canvas').css({
-		'-webkit-transform': 'scale(' + r + ')',
-		'-moz-transform': 'scale(' + r + ')',
-		'-ms-transform': 'scale(' + r + ')',
-		'-o-transform': 'scale(' + r + ')',
-		'transform': 'scale(' + r + ')'
-	});*/
-
+	let windowWith=window.innerWidth;
+	let windowHeight=window.innerHeight;
+	let width=canvas.width;
+	let height=canvas.height;
+	if(height>windowHeight)
+	{
+		r=windowHeight/height;
+		$(".canvas-container").css({"transform": "scale("+r+")"});
+		let top=$(".canvas-container").position().top;
+		$(".canvas-container").css("top",-top+"px");
+		ClientRect = canvas.getBoundingClientRect();
+	}
 
 });

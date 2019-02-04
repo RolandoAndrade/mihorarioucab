@@ -34,6 +34,11 @@ class Card
 		this.number=this.id;
 	}
 
+	isIn()
+	{
+		return this.number!==-1&&this.w===FIELD_WIDTH;
+	}
+
 	addSubject(subject)
 	{
 		this.subjects.add(subject);
@@ -66,5 +71,9 @@ class Card
 		this.y=y;
 		this.w=w;
 		this.h=h;
+	}
+	equals(card)
+	{
+		return this.name===card.name;
 	}
 }

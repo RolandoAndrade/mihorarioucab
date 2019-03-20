@@ -11,11 +11,21 @@ class CreateASubject(generics.CreateAPIView):
     serializer_class = serializers.SubjectCreateSerializer
 
 
+class ChangeASubject(generics.UpdateAPIView):
+    queryset = Subject.objects.all()
+    serializer_class = serializers.SubjectCreateSerializer
+
+
 class ViewASubject(generics.RetrieveAPIView):
     queryset = Subject.objects.all()
     serializer_class = serializers.SubjectViewSerializer
 
 
 class ViewAllSubjects(generics.ListAPIView):
+    queryset = Subject.objects.all()
+    serializer_class = serializers.SubjectViewSerializer
+
+
+class DeleteSubject(generics.DestroyAPIView):
     queryset = Subject.objects.all()
     serializer_class = serializers.SubjectViewSerializer
